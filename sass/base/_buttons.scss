@@ -32,6 +32,10 @@
 	@include font (1.6rem, 2.4rem, 600);
 	display: inline-flex;
 	align-items: center;
+	@extend %transition;
+	&:hover {
+		color: $color-additional;
+	}
 }
 
 .link-button__text {

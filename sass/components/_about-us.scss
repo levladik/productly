@@ -1,3 +1,5 @@
+$image-gap: 32px;
+
 .about-us {
 	padding: 30px 0 100px 0;
 }
@@ -14,14 +16,23 @@
 	display: flex;
 	align-items: center;
 	flex-direction: row;
+	@include media-tablet {
+		flex-direction: column;
+	}
 }
 
 .employee {
-	padding: 35px 0;
-	margin-right: 64px;
 	padding: 35px;
+	margin-right: 64px;
 	position: relative;
-	width: calc(30% - 32px);
+	width: calc(30% - $image-gap);
+	@include media-tablet {
+		width: calc(60% - 32px);
+	}
+	@include media-mobile {
+		margin-right: 32px;
+		width: 90%;
+	}
 }
 
 .employee__name {
@@ -30,19 +41,16 @@
 
 .employee__title {
 	margin: 0;
-	font-size: 1.6rem;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1.6rem;
+	@include font(1.6rem, 1.6rem, normal, normal);
 }
 
 .employee__contact {
-	font-size: 1.6rem;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1.6rem;
+	@include font(1.6rem, 1.6rem, normal, normal);
 	color: #1943EF;
 	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .employee__photo {
@@ -50,7 +58,7 @@
 	height: 98px;
 	border-radius: 50%;
 	position: absolute;
-	right: -32px;
+	right: -	$image-gap;
 	top: 20px;
 	box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
 }
